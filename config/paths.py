@@ -5,6 +5,8 @@ ROOT = Path(__file__).resolve().parent.parent
 # Depth 1
 
 DATASET = ROOT / "Dataset"
+CONFIG = ROOT / "config"
+LOG = ROOT / "log"
 
 # Depth 2
 
