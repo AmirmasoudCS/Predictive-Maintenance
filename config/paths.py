@@ -8,6 +8,7 @@ DATASET = ROOT / "Dataset"
 CONFIG = ROOT / "config"
 LOG = ROOT / "log"
 ASSETS = ROOT / "assets"
+RESULTS = ROOT / "results"
 
 # Depth 2
 
