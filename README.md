@@ -206,19 +206,19 @@ The final models were evaluated using precision, recall, F1-score, ROC-AUC, and 
 
 ### Model Comparison
 
-The bar chart below provides a direct comparison of the five evaluation metrics across the three models, highlighting the differences in their overall performance.
+The bar chart provides a direct comparison of the models across precision, recall, F1-score, and PR-AUC, making the differences in their performance easy to see at a glance.
 
 ![Model Comparison Bars](results/model_comparison_bars.png)
 
 ### Precision-Recall Curves
 
-The precision-recall curves show how the trade-off between detecting failures and generating false alarms changes across different classification thresholds. This is particularly important given the severe class imbalance in the dataset.
+The precision-recall curves show the trade-off between detecting more machine failures and generating additional false alarms across different classification thresholds. XGBoost maintains the strongest overall precision-recall performance, reflected by its highest PR-AUC.
 
 ![Precision-Recall Curve Comparison](results/model_comparison_pr_curves.png)
 
 ### ROC Curves
 
-The ROC curves illustrate how well each model distinguishes between failing and non-failing machines across different decision thresholds. Random Forest achieves the highest ROC-AUC among the three models.
+The ROC curves show how effectively each model separates failing machines from non-failing machines across different thresholds. Random Forest achieves the highest ROC-AUC (0.970), followed closely by XGBoost (0.963).
 
 ![ROC Curve Comparison](results/model_comparison_roc_curves.png)
 
