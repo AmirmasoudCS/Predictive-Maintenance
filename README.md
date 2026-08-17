@@ -10,7 +10,7 @@ Modern manufacturing depends heavily on reliable industrial machinery. Unexpecte
 
 There are several ways machine learning can contribute to manufacturing, from analyzing production patterns to monitoring equipment through sensor data. In particular, sensor measurements can reveal relationships and operating conditions associated with machine failures.
 
-In this project, I explore **predictive maintenance** using the AI4I 2020 dataset. I compare three classification approaches - Logistic Regression, Random Forest, and XGBoost - to predict whether a machine will fail based on sensor readings and product type.
+In this project, I explore **predictive maintenance** using the AI4I 2020 dataset. I compare three classification approaches: Logistic Regression, Random Forest, and XGBoost to predict whether a machine will fail based on sensor readings and product type.
 
 The main objective is not only to find the best-performing model, but also to examine the trade-off between **missing actual failures** and **generating unnecessary alerts**, and determine which model is more suitable depending on the priorities of the application.
 
