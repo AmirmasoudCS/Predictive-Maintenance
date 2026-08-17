@@ -1,13 +1,17 @@
 # Predictive-Maintenance-Machine-Failure-Classification
 
-<!-- BANNER PLACEHOLDER -->
 ![Project Banner](assets/banner.png)
 
 ---
 
 ## My Motivation
 
-<!-- TODO: write this section -->
+As the population grows, the demand on different assets grows as well, and you can supply this demand by either building more and more factories and machineries, or improve the 
+quality of the ones that we currently have, and since we only have so much land to place firms and factories on, it is a good idea to start improving the way factories and machines inside them are monitored and handles.
+
+There are different ways you can improve a factory to name a few: predict the hourly output, replace the manual labor with machines that never rest, using sensors to gather data in order to find hidden patterns in failure mode of machines and ...
+
+In this project, I delve intp predictive maintanance, using the data gathered from the AI4I 2020 dataset to see how does bagging and boosting algorithms can help with predicting the machine failure with logistic regression as a simple baseline, and I also recommend a model to be user based on the results we get in different situations.
 
 ---
 
