@@ -6,33 +6,28 @@
 
 ## My Motivation
 
-As the population grows, the demand on different assets grows as well, and you can supply this demand by either building more and more factories and machineries, or improve the 
-quality of the ones that we currently have, and since we only have so much land to place firms and factories on, it is a good idea to start improving the way factories and machines inside them are monitored and handles.
+As the population grows, so does demand on our industrial assets. We can meet that demand either by building more factories and machinery, or by improving the ones we already have, and since land for new factories is limited, improving how existing factories and their machines are monitored and maintained is often the smarter path.
 
-There are different ways you can improve a factory to name a few: predict the hourly output, replace the manual labor with machines that never rest, using sensors to gather data in order to find hidden patterns in failure mode of machines and ...
+There are several ways to improve a factory's reliability to name a few: predicting hourly output, replacing manual labor with machines that never rest, or using sensors to gather data and uncover hidden patterns behind machine failures.
 
-In this project, I delve intp predictive maintanance, using the data gathered from the AI4I 2020 dataset to see how does bagging and boosting algorithms can help with predicting the machine failure with logistic regression as a simple baseline, and I also recommend a model to be user based on the results we get in different situations.
+In this project, I explore **predictive maintenance** using the AI4I 2020 dataset, comparing how bagging and boosting algorithms (Random Forest and XGBoost) perform against a simple Logistic Regression baseline at predicting machine failure. I also recommend which model to use depending on the priorities of the situation, minimizing missed failures versus minimizing false alarms.
 
 ---
 
-A binary classification project predicting machine failure on the AI4I 2020 Predictive
-Maintenance Dataset, comparing Logistic Regression, Random Forest, and XGBoost.
-
-
-## Overview
+## 📋 Overview
 
 Manufacturing equipment failures are costly and often preventable. This project builds
 and compares three classification models to predict machine failure from sensor
 readings (temperature, rotational speed, torque, tool wear) and product type, with a
 focus on handling severe class imbalance (~3.4% failure rate) correctly.
 
-## Dataset
+## 📊 Dataset
 
 - **Source:** [AI4I 2020 Predictive Maintenance Dataset](https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset) (UCI Machine Learning Repository)
-- 10,000 rows, 14 columns - sensor readings, product type, and failure labels
+- 10,000 rows, 14 columns: sensor readings, product type, and failure labels
 - Target: `Machine failure` (binary), with 5 individual failure-mode flags (TWF, HDF, PWF, OSF, RNF)
 
-## Approach
+## 🧭 Approach
 
 1. **Sanity check**: verified data integrity (no missing values, no duplicates, correct types)
 2. **EDA**: explored feature distributions, correlations, and failure patterns
@@ -43,7 +38,7 @@ focus on handling severe class imbalance (~3.4% failure rate) correctly.
    - XGBoost
 5. **Comparison**: evaluated all models on precision, recall, F1, ROC-AUC, and PR-AUC
 
-## Key EDA Findings
+## 🔍 Key EDA Findings
 
 - Machines don't fail randomly, failures cluster in two distinct operating zones
   (low-speed/high-torque and high-speed/low-torque), each tied to a different failure mechanism:
@@ -57,7 +52,7 @@ focus on handling severe class imbalance (~3.4% failure rate) correctly.
 
 Full EDA writeup: [`data inspection and eda`](./notebooks/01_inspection_and_EDA.ipynb)
 
-## Results
+## 🏆 Results
 
 Given the severe class imbalance, **PR-AUC and recall on the failure class** were
 prioritized over accuracy.
@@ -74,7 +69,7 @@ prioritized over accuracy.
 
 ![ROC Curve Comparison](results/model_comparison_roc_curves.png)
 
-### Recommendation
+### ✅ Recommendation
 
 **XGBoost** is the recommended model, it achieves the best PR-AUC and highest recall,
 which matters most in predictive maintenance since missed failures are typically far
@@ -84,7 +79,7 @@ false alarms (technician callouts) is the higher priority, thanks to its better 
 Logistic Regression is kept as an interpretable baseline but isn't practical to deploy
 on its own, nearly 9 out of 10 of its failure alerts would be false alarms.
 
-## Repository Structure
+## 🗂️ Repository Structure
 
 ```
  
@@ -117,7 +112,6 @@ on its own, nearly 9 out of 10 of its failure alerts would be false alarms.
 │   │   ├── 📊 y_test.csv
 │   │   └── 📊 y_train.csv
 │   └── 📊 ai4i2020.csv
-├── 📁 log
 ├── 📁 notebooks
 │   ├── 📄 01_inspection_and_EDA.ipynb
 │   ├── 📄 02_preprocessing.ipynb
@@ -159,7 +153,7 @@ on its own, nearly 9 out of 10 of its failure alerts would be false alarms.
 ```
 > Generated using [directory-tree-printer](https://github.com/AmirmasoudCS/Tree-Printer.git)
 
-## How to Run
+## ▶️ How to Run
 
 ```bash
 # clone the repo
@@ -169,9 +163,11 @@ cd Predictive-Maintenance
 # install dependencies
 pip install -r requirements.txt
 
-# run notebooks in order
+# run the notebooks in order:
+# 01_inspection_and_EDA -> 02_preprocessing -> 03_logistic_regression
+# -> 04_random_forest -> 05_xgboost -> 06_comparison
 ```
 
-## License
+## 📜 License
 
 [MIT License](./LICENSE)
