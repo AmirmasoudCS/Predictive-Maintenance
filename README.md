@@ -1,6 +1,6 @@
 # ⚙️ Predictive Maintenance: Machine Failure Classification
 
-![Project Banner](assets/banner.png)
+![Project Banner](assets/banner_v2.svg)
 
 ---
 
