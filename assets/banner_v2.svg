@@ -1,0 +1,116 @@
+<svg viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skyBack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2E3742"/>
+      <stop offset="100%" stop-color="#232A33"/>
+    </linearGradient>
+    <linearGradient id="groundLayer" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8A6A3F"/>
+      <stop offset="100%" stop-color="#6B4E2C"/>
+    </linearGradient>
+    <linearGradient id="beltFront" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3B3F45"/>
+      <stop offset="100%" stop-color="#232629"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="300" fill="#EDEAE3"/>
+
+  <!-- brown ground layer between background and conveyor belt -->
+  <path d="M0,225 C220,208 420,222 650,215 C880,208 1050,222 1200,212 L1200,265 L0,265 Z" fill="url(#groundLayer)" opacity="0.9"/>
+
+  <!-- factory buildings (shorter, sitting on the ground layer) -->
+  <g opacity="0.6" fill="url(#skyBack)">
+    <rect x="0" y="175" width="60" height="65"/>
+    <rect x="70" y="150" width="50" height="90"/>
+    <rect x="130" y="180" width="70" height="60"/>
+    <!-- chimneys -->
+    <rect x="20" y="140" width="16" height="35"/>
+    <rect x="90" y="115" width="16" height="35"/>
+    <!-- roof triangles -->
+    <path d="M130,180 L165,158 L200,180 Z"/>
+
+    <rect x="950" y="170" width="70" height="70"/>
+    <rect x="1030" y="185" width="60" height="55"/>
+    <rect x="1100" y="150" width="55" height="90"/>
+    <rect x="1160" y="178" width="40" height="62"/>
+    <rect x="970" y="128" width="16" height="42"/>
+    <rect x="1120" y="115" width="16" height="35"/>
+  </g>
+
+  <!-- smoke puffs -->
+  <g fill="#C9C4B8" opacity="0.5">
+    <circle cx="28" cy="125" r="7"/>
+    <circle cx="34" cy="112" r="9"/>
+    <circle cx="44" cy="100" r="8"/>
+    <circle cx="978" cy="108" r="7"/>
+    <circle cx="985" cy="95" r="9"/>
+    <circle cx="995" cy="82" r="8"/>
+  </g>
+
+  <!-- conveyor belt (front ground) -->
+  <path d="M0,260 L1200,260 L1200,300 L0,300 Z" fill="url(#beltFront)"/>
+  <g stroke="#55595E" stroke-width="4">
+    <line x1="20" y1="260" x2="0" y2="300"/>
+    <line x1="80" y1="260" x2="60" y2="300"/>
+    <line x1="140" y1="260" x2="120" y2="300"/>
+    <line x1="200" y1="260" x2="180" y2="300"/>
+    <line x1="260" y1="260" x2="240" y2="300"/>
+    <line x1="320" y1="260" x2="300" y2="300"/>
+    <line x1="380" y1="260" x2="360" y2="300"/>
+    <line x1="440" y1="260" x2="420" y2="300"/>
+    <line x1="500" y1="260" x2="480" y2="300"/>
+    <line x1="560" y1="260" x2="540" y2="300"/>
+    <line x1="620" y1="260" x2="600" y2="300"/>
+    <line x1="680" y1="260" x2="660" y2="300"/>
+    <line x1="740" y1="260" x2="720" y2="300"/>
+    <line x1="800" y1="260" x2="780" y2="300"/>
+    <line x1="860" y1="260" x2="840" y2="300"/>
+    <line x1="920" y1="260" x2="900" y2="300"/>
+    <line x1="980" y1="260" x2="960" y2="300"/>
+    <line x1="1040" y1="260" x2="1020" y2="300"/>
+    <line x1="1100" y1="260" x2="1080" y2="300"/>
+    <line x1="1160" y1="260" x2="1140" y2="300"/>
+    <line x1="1220" y1="260" x2="1200" y2="300"/>
+  </g>
+  <!-- side rollers -->
+  <circle cx="10" cy="255" r="9" fill="#4A4E53"/>
+  <circle cx="1190" cy="255" r="9" fill="#4A4E53"/>
+
+  <!-- clockwork (top, two interlocking gears replacing the sun) -->
+  <g transform="translate(140,0)">
+    <!-- large gear -->
+    <g fill="#B5651D">
+      <circle cx="102" cy="72" r="24"/>
+      <g>
+        <rect x="96" y="20" width="12" height="16"/>
+        <rect x="96" y="112" width="12" height="16"/>
+        <rect x="46" y="66" width="16" height="12"/>
+        <rect x="140" y="66" width="16" height="12"/>
+        <rect x="62" y="30" width="12" height="16" transform="rotate(-45 68 38)"/>
+        <rect x="130" y="98" width="12" height="16" transform="rotate(-45 136 106)"/>
+        <rect x="130" y="30" width="12" height="16" transform="rotate(45 136 38)"/>
+        <rect x="62" y="98" width="12" height="16" transform="rotate(45 68 106)"/>
+      </g>
+      <circle cx="102" cy="72" r="9" fill="#EDEAE3"/>
+    </g>
+    <!-- small interlocking gear -->
+    <g fill="#C9A227">
+      <circle cx="140" cy="40" r="14"/>
+      <g>
+        <rect x="135" y="10" width="8" height="10"/>
+        <rect x="135" y="60" width="8" height="10"/>
+        <rect x="110" y="36" width="10" height="8"/>
+        <rect x="160" y="36" width="10" height="8"/>
+        <rect x="119" y="16" width="8" height="10" transform="rotate(-45 123 21)"/>
+        <rect x="153" y="54" width="8" height="10" transform="rotate(-45 157 59)"/>
+        <rect x="153" y="16" width="8" height="10" transform="rotate(45 157 21)"/>
+        <rect x="119" y="54" width="8" height="10" transform="rotate(45 123 59)"/>
+      </g>
+      <circle cx="140" cy="40" r="5" fill="#EDEAE3"/>
+    </g>
+  </g>
+
+  <!-- text -->
+  <text x="600" y="140" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="46" font-weight="700" fill="#1B2E1B">Predictive Maintenance</text>
+</svg>
