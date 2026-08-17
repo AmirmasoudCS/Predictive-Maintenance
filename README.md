@@ -364,7 +364,7 @@ In a real predictive-maintenance system, the final model should therefore depend
 Clone the repository:
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/AmirmasoudCS/Predictive-Maintenance.git
 cd Predictive-Maintenance
 ```
 
