@@ -1,7 +1,7 @@
 # Predictive-Maintenance-Machine-Failure-Classification
 
 <!-- BANNER PLACEHOLDER -->
-<!-- ![Project Banner](assets/banner.png) -->
+![Project Banner](assets/banner.png)
 
 ---
 
