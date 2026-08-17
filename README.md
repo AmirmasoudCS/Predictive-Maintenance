@@ -1,4 +1,4 @@
-# ⚙️ Predictive-Maintenance-Machine-Failure-Classification
+# ⚙️ Predictive Maintenance: Machine Failure Classification
 
 ![Project Banner](assets/banner.png)
 
@@ -14,20 +14,20 @@ In this project, I explore **predictive maintenance** using the AI4I 2020 datase
 
 ---
 
-## 📋 Overview
+## 🔎 Overview
 
 Manufacturing equipment failures are costly and often preventable. This project builds
 and compares three classification models to predict machine failure from sensor
 readings (temperature, rotational speed, torque, tool wear) and product type, with a
 focus on handling severe class imbalance (~3.4% failure rate) correctly.
 
-## 📊 Dataset
+## 🏭 Dataset
 
 - **Source:** [AI4I 2020 Predictive Maintenance Dataset](https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset) (UCI Machine Learning Repository)
 - 10,000 rows, 14 columns: sensor readings, product type, and failure labels
 - Target: `Machine failure` (binary), with 5 individual failure-mode flags (TWF, HDF, PWF, OSF, RNF)
 
-## 🧭 Approach
+## 🎯 Approach
 
 1. **Sanity check**: verified data integrity (no missing values, no duplicates, correct types)
 2. **EDA**: explored feature distributions, correlations, and failure patterns
@@ -38,7 +38,7 @@ focus on handling severe class imbalance (~3.4% failure rate) correctly.
    - XGBoost
 5. **Comparison**: evaluated all models on precision, recall, F1, ROC-AUC, and PR-AUC
 
-## 🔍 Key EDA Findings
+## 🔬 Key EDA Findings
 
 - Machines don't fail randomly, failures cluster in two distinct operating zones
   (low-speed/high-torque and high-speed/low-torque), each tied to a different failure mechanism:
@@ -52,7 +52,7 @@ focus on handling severe class imbalance (~3.4% failure rate) correctly.
 
 Full EDA writeup: [`data inspection and eda`](./notebooks/01_inspection_and_EDA.ipynb)
 
-## 🏆 Results
+## 📈 Results
 
 Given the severe class imbalance, **PR-AUC and recall on the failure class** were
 prioritized over accuracy.
@@ -71,7 +71,7 @@ prioritized over accuracy.
 
 ### ✅ Recommendation
 
-**XGBoost** is the recommended model, it achieves the best PR-AUC and highest recall,
+**XGBoost** is the recommended model because it achieves the best PR-AUC and highest recall,
 which matters most in predictive maintenance since missed failures are typically far
 costlier than false alarms. **Random Forest** is a strong alternative if minimizing
 false alarms (technician callouts) is the higher priority, thanks to its better precision.
@@ -153,21 +153,43 @@ on its own, nearly 9 out of 10 of its failure alerts would be false alarms.
 ```
 > Generated using [directory-tree-printer](https://github.com/AmirmasoudCS/Tree-Printer.git)
 
-## ▶️ How to Run
+## 🚀 How to Run
+
+Clone and enter the repository:
 
 ```bash
-# clone the repo
-git clone <repo-url>
+git clone 
 cd Predictive-Maintenance
-
-# install dependencies
-pip install -r requirements.txt
-
-# run the notebooks in order:
-# 01_inspection_and_EDA -> 02_preprocessing -> 03_logistic_regression
-# -> 04_random_forest -> 05_xgboost -> 06_comparison
 ```
 
-## 📜 License
+Create a virtual environment:
+```bash
+python -m venv .venv
+```
+
+Activate the virtual environment:
+
+- Windows
+
+```bash
+.venv\Scripts\activate
+```
+
+- Linux/macOS
+
+```bash
+source .venv/bin/activate
+```
+
+Install the requirements:
+
+```bash
+pip install -r requirements.txt
+```
+
+And run through the notebooks.
+
+
+## ⚖️ License
 
 [MIT License](./LICENSE)
