@@ -206,13 +206,19 @@ The final models were evaluated using precision, recall, F1-score, ROC-AUC, and 
 
 ### Model Comparison
 
+The bar chart below provides a direct comparison of the five evaluation metrics across the three models, highlighting the differences in their overall performance.
+
 ![Model Comparison Bars](results/model_comparison_bars.png)
 
 ### Precision-Recall Curves
 
+The precision-recall curves show how the trade-off between detecting failures and generating false alarms changes across different classification thresholds. This is particularly important given the severe class imbalance in the dataset.
+
 ![Precision-Recall Curve Comparison](results/model_comparison_pr_curves.png)
 
 ### ROC Curves
+
+The ROC curves illustrate how well each model distinguishes between failing and non-failing machines across different decision thresholds. Random Forest achieves the highest ROC-AUC among the three models.
 
 ![ROC Curve Comparison](results/model_comparison_roc_curves.png)
 
