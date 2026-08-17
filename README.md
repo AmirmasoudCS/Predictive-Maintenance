@@ -1,4 +1,4 @@
-# Predictive-Maintenance-Machine-Failure-Classification
+# ⚙️ Predictive-Maintenance-Machine-Failure-Classification
 
 ![Project Banner](assets/banner.png)
 
