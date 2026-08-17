@@ -83,26 +83,36 @@ These individual failure-mode labels were treated as target-leaking information 
 
 ## 🔬 Exploratory Data Analysis
 
-The initial analysis examined:
+Before modeling, the dataset was inspected to understand the distributions
+of the numerical features, relationships between variables, and patterns
+associated with machine failures.
 
-* Dataset dimensions
-* Data types
-* Missing values
-* Duplicate observations
-* Numerical feature distributions
-* Feature correlations
-* Failure rates
-* Failure patterns across operating conditions
-* Failure rates across product types
+### Feature Distributions
 
-The dataset contains a severe class imbalance, with machine failures representing only approximately **3.4%** of all observations.
+The numerical features show noticeably different distributions. Air temperature
+and process temperature are relatively concentrated within narrow ranges,
+while rotational speed is right-skewed with a long upper tail. Torque follows
+a roughly bell-shaped distribution, whereas tool wear is distributed more
+uniformly across its observed range.
+
+![Numerical Feature Distributions](assets/plots/numeric_distributions_combined.png)
+
+### Feature Distributions by Machine Failure
+
+Comparing the numerical features between failed and non-failed machines reveals
+several noticeable differences. Failed machines tend to operate at higher
+temperatures, lower rotational speeds, and higher torque levels. Tool wear is
+also generally higher among machines that experience failure.
+
+![Feature Distributions by Machine Failure](assets/plots/boxplots_by_failure_combined.png)
 
 ### Failure Patterns
 
-Machines do not fail randomly across all operating conditions. The analysis revealed two distinct operating zones where failures tend to cluster:
+Machines do not fail randomly across all operating conditions. The analysis
+revealed two distinct operating zones where failures tend to cluster:
 
-* **Low-speed / high-torque**
-* **High-speed / low-torque**
+- **Low-speed / high-torque**
+- **High-speed / low-torque**
 
 These regions are associated with different failure mechanisms.
 
@@ -110,11 +120,13 @@ These regions are associated with different failure mechanisms.
 
 ### Failure Rate by Product Type
 
-An interesting finding was that the **lowest-quality product variant (Type L)** had the highest observed failure rate rather than the highest-quality variant.
+An interesting finding was that the **lowest-quality product variant (Type L)**
+had the highest observed failure rate rather than the highest-quality variant.
 
 ![Failure Rate by Type](assets/plots/failure_rate_by_type.png)
 
-The complete exploratory analysis is available in [`01_inspection_and_EDA.ipynb`](./notebooks/01_inspection_and_EDA.ipynb).
+The complete exploratory analysis is available in
+[`01_inspection_and_EDA.ipynb`](./notebooks/01_inspection_and_EDA.ipynb).
 
 ---
 
