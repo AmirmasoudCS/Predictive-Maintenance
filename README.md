@@ -38,8 +38,7 @@ The project follows a simple machine learning workflow:
 5. Logistic Regression baseline
 6. Random Forest
 7. XGBoost
-8. Model evaluation and comparison
-9. Error and performance analysis
+8. Model evaluation and comparison, including error and performance analysis of each model's precision-recall trade-off
 
 Because machine failures represent only **~3.4% of the observations**, particular attention is given to the severe class imbalance and to metrics that are more informative than accuracy.
 
@@ -60,7 +59,7 @@ The dataset contains:
 ### Features
 
 | Feature                   | Description                     |
-| ------------------------- | ------------------------------- |
+| ------------------------- | -------------------------------- |
 | `Type`                    | Product quality/type            |
 | `Air temperature [K]`     | Air temperature                 |
 | `Process temperature [K]` | Process temperature             |
@@ -236,49 +235,43 @@ The ROC curves show how effectively each model separates failing machines from n
 
 ---
 
-## 🏆 Model Analysis
+## 🏆 Model Analysis and Recommendation
 
 The results reveal an important trade-off between **detecting failures** and **avoiding false alarms**.
 
 ### Logistic Regression
 
-Logistic Regression achieved the **highest recall (0.824)**, meaning it detected the largest proportion of actual machine failures.
+Logistic Regression achieved the **highest recall (0.824)**, meaning it detected the largest proportion of actual machine failures, making it useful when detecting as many failures as possible is the primary concern.
 
 However, its precision was only **0.144**.
 
 This means that approximately **86% of its failure alerts were false alarms** at the evaluated operating point.
 
-Therefore, despite its high recall, Logistic Regression provides a poor precision-recall balance for this dataset.
+Despite its high recall, Logistic Regression provides a poor precision-recall balance for this dataset, and this comes at the cost of a large number of false alarms.
 
 ### Random Forest
 
 Random Forest achieved the **highest precision (0.750)** and the highest ROC-AUC (0.970).
 
-This makes it a strong option when minimizing false alarms is particularly important.
+This makes it a strong alternative when minimizing false alarms is particularly important.
 
 Its recall of **0.706**, however, means that it misses more actual failures than XGBoost and Logistic Regression.
 
 ### XGBoost
 
-XGBoost achieved the **highest PR-AUC (0.812)** and the highest F1-score (0.730).
+XGBoost achieved the **highest PR-AUC (0.812)** and the highest F1-score (0.730), indicating the strongest overall precision-recall trade-off among the evaluated models.
 
 It also achieved a recall of **0.794**, while maintaining substantially better precision than Logistic Regression.
 
-This gives XGBoost the best overall balance between detecting failures and limiting false alarms among the three evaluated models.
+This gives XGBoost the best overall balance between detecting failures and limiting false alarms among the three evaluated models, making it the recommended choice when both failure detection and false-alarm reduction are important.
 
----
+### Recommendation Summary
 
-## ✅ Recommendation
+In a real predictive-maintenance system, the final model should depend on the relative operational cost of **missed failures versus unnecessary maintenance alerts**:
 
-**XGBoost is the recommended model when both failure detection and false-alarm reduction are important.**
-
-It achieved the best **PR-AUC (0.812)** and **F1-score (0.730)**, indicating the strongest overall precision-recall trade-off among the evaluated models.
-
-**Random Forest** is a strong alternative when minimizing false alarms is the higher priority, as it achieved the highest precision at **0.750**.
-
-**Logistic Regression** achieved the highest recall at **0.824**, making it useful when detecting as many failures as possible is the primary concern. However, its very low precision means that this comes at the cost of a large number of false alarms.
-
-In a real predictive-maintenance system, the final model should therefore depend on the relative operational cost of **missed failures versus unnecessary maintenance alerts**.
+* **XGBoost** - recommended when both failure detection and false-alarm reduction matter, given its best PR-AUC (0.812) and F1-score (0.730)
+* **Random Forest** - recommended when minimizing false alarms is the higher priority, given its highest precision (0.750)
+* **Logistic Regression** - useful when detecting as many failures as possible is the primary concern, given its highest recall (0.824), but its low precision means a large number of false alarms
 
 ---
 
@@ -445,7 +438,7 @@ Potential extensions include:
 
 This project investigated the use of machine learning for predictive maintenance by comparing Logistic Regression, Random Forest, and XGBoost on the AI4I 2020 Predictive Maintenance Dataset.
 
-The results demonstrate that model performance depends strongly on which aspect of failure prediction is prioritized. Logistic Regression achieved the highest recall, but generated a large number of false alarms. Random Forest achieved the highest precision, making it attractive when unnecessary maintenance alerts are particularly costly. XGBoost provided the strongest overall precision-recall balance, achieving the highest PR-AUC and F1-score.
+Model performance depended strongly on which aspect of failure prediction was prioritized, and the Model Analysis and Recommendation section above breaks down that trade-off in detail for each of the three models.
 
 These results highlight an important aspect of predictive maintenance: **the best model is not necessarily the one with the highest accuracy, but the one whose error profile best matches the operational costs of the application.**
 
